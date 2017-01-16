@@ -1,0 +1,30 @@
+﻿<h1>{{name}}</h1>
+<p><strong>Phone:</strong>{{phone}}</p>
+<p><strong>Address: </strong>House: {{address.house}}, Road: {{address.house}}, Bloack: {{address.block}}</p>
+<button (click)="troggleHobbies()">Show Hobbies</button>
+<div *ngIf="isHobbiesVisible">
+    <p><strong>Hobbies</strong>
+    </p>
+    <ul>
+        <li *ngFor="let hobby of hobbies;let i = index">
+            {{hobby}} <span style="color: red; cursor: pointer" (click)="deleteHobby(i)">x</span>
+        </li>
+    </ul>
+    <form (submit)="addHobby(hobby.value)">
+        <label>Add: </label>
+        <input type="text" placeholder="Your hobby here..." #hobby/>
+
+    </form>
+</div>
+<br/><hr/>
+<H3>Edit Info</H3><br/>
+<form>
+    <label>Name:</label>
+    <input type="text" name="name" [(ngModel)]="name"/>
+</form>
+<hr/>
+
+<alert type="success">
+  <strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+
