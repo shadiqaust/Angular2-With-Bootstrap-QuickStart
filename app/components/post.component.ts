@@ -18,9 +18,8 @@ export class PostComponent{
     }
 
 }
-
 interface Post {
   id: number;
-  tile: string;
+  title: string;
   body:string;
 }

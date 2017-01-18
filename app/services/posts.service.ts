@@ -8,7 +8,9 @@ export class PostsService {
         console.log('Post Service initilizing.....');
     }
     getPost() {
-        return this.http.get('https://jsonplaceholder.typicode.com/posts')
-            .map(res=>res.json());
+        return this.http.get('/posts')
+            .map(res=> res.json()).filter((value)=>{console.log('1'); return true;});
     }
 }
+
+

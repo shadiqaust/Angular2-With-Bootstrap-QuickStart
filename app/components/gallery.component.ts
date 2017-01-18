@@ -11,12 +11,12 @@ import { ModalDirective } from 'ng2-bootstrap';
 
 export class GalleryComponent{
   @ViewChild('childModal') public childModal:ModalDirective;
-    name = "Gallary Component";
+    name = "Gallery Component";
     images:Image[];
   imageSource:string;
-  constructor(private gallryService:GalleryService)
+  constructor(private galleryService:GalleryService)
   {
-    this.gallryService.getGallery().subscribe(images=>{
+    this.galleryService.getGallery().subscribe(images=>{
       this.images=images;
     })
   }
