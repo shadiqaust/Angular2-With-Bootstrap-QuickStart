@@ -13,17 +13,24 @@ import {routing} from "./app.router";
 import {PostComponent} from "./components/post.component";
 import {GalleryComponent} from "./components/gallery.component";
 import {HttpService} from "./services/http.service";
+import {Ng2AutoCompleteModule} from "ng2-auto-complete";
+
+import {AutoCompleteComponent} from "./components/autocomplete.component";
+import {MdInputModule} from "@angular/material";
+
+
 
 function httpClientFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions): Http {
   return new HttpService(xhrBackend, requestOptions);
 }
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpModule,routing,AlertModule.forRoot(),ModalModule.forRoot()],
-  declarations: [AppComponent, UserComponent,PostComponent,GalleryComponent ],
+  imports: [BrowserModule, FormsModule, HttpModule,routing,AlertModule.forRoot(),ModalModule.forRoot(),Ng2AutoCompleteModule,MdInputModule],
+  declarations: [AppComponent, UserComponent,PostComponent,GalleryComponent,AutoCompleteComponent ],
   bootstrap:    [ AppComponent ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },{provide:Http,useFactory: httpClientFactory,deps:[XHRBackend,RequestOptions]}
+    { provide: APP_BASE_HREF, useValue: '/' }
+    ,{provide:Http,useFactory: httpClientFactory,deps:[XHRBackend,RequestOptions]}
   ]
 })
 export class AppModule { }
